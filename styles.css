@@ -1,0 +1,165 @@
+/* @import url('https://fonts.googleapis.com/css?family=Fredericka+the+Great|Zilla+Slab:300,400'); */
+
+body {
+	background: #046b99;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: #01b1b1;
+}
+
+.frame {
+  width: 100%;
+  height: 100vh;
+  border-radius: 2px;
+  color: #497081;
+  font-family: 'zilla slab', serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+	font-size: .9rem;
+}
+
+.list {
+  width: 80%;
+  max-width: 800px;
+  height: 90vh;
+  margin: 5vh auto;
+  background: #fff;
+  box-shadow: 1rem 1rem .5rem rgba(0, 0, 0, 0.15);
+  border-radius: 3px;
+  overflow-y: auto;
+}
+
+.list .head {
+  padding: 20px 0;
+  margin: 0 30px;
+  border-bottom: 1px solid rgba(0, 177, 177, .5);
+}
+
+.list .title {
+	font-family: 'fredericka the great', cursive;
+  font-weight: 500;
+  text-align: center;
+	font-size: 2.5rem;
+	color: #046b99;
+}
+
+.list .subtitle {
+  font-size: .9rem;
+  text-align: center;
+	letter-spacing: .5px;
+}
+
+.list ul {
+  position: relative;
+  list-style: none;
+  padding: 4px 0;
+  margin: 0 30px;
+	font-weight: 300;  
+}
+
+.list ul li {
+  position: relative;
+  display: block;
+  padding: 24px 0;
+  height: 2em;
+  border-bottom: 1px solid rgba(200, 200, 200, 0.15);
+}
+
+.list ul .text {
+  float: left;
+  clear: left;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all .3s ease-in-out;
+  max-width: 95%;
+  margin-bottom: 1em;
+}
+
+.list ul .text .details {
+  display: block;
+  color: gray;
+  font-size: 80%;
+}
+
+@keyframes slide-up {
+	0% {
+		opacity: 0;
+		transform: translateY(5rem);
+	}
+}
+
+.list ul .button {
+  position: absolute;
+  right: 0;
+	z-index: 2; 
+  box-sizing: border-box;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #046b99;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+
+.list ul .checkmark {
+  position: absolute;
+  stroke: rgba(0, 177, 177, .9);
+  fill: none;
+  stroke-dashoffset: 340;
+  stroke-dasharray: 360;
+}
+
+.list ul input {
+  display: none;
+}
+
+ul li .wrapper {
+	position: absolute;
+	width: 20px;
+  right: 0;
+}
+
+.list ul input:checked ~ .text{
+		color: rgba(0, 177, 177, .9);
+}
+.list ul input:checked ~ .wrapper .checkmark {
+		animation: dash .5s ease-out forwards;
+		opacity: 1;
+}
+.list ul input:checked ~ 	.button {
+		opacity: 0;
+}
+
+.checkmark {
+  display: block;
+  stroke-width: 8;
+	opacity: 0;
+}
+
+.appendix {
+  display: flex;
+  justify-content: center;
+  padding: 1em;
+  font-size: small;
+}
+
+.item-status {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  color: gray;
+  font-size: 80%;
+}
+
+@keyframes dash {
+  0% {
+    stroke-dashoffset: 340;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
