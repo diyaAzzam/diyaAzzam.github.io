@@ -9,11 +9,16 @@
             },
             {
                 "action": "Fill out and Review Design Engineer Checklist for Planning Studies",
-                "form": "BD-0100"
+                "form": {
+                    "name": "BD-0100",
+                    "link": "https://www.sealedair.com/content/dam/protective-equipment/automated-mailer-systems/flowrap/flowrap-packages360/flowrap-f1ac-spare-parts-list.pdf"
+                }
             },
             {
                 "action": "Project Information Sheet",
-                "form": "BD-0050"
+                "form": {
+                    "name": "BD-0050"
+                }
             },
             {
                 "action": "Collect required forms ( (BD-0050), Key Decisions Document(BD-0052), Risk Register, ABC Questionnaire)"
@@ -21,21 +26,29 @@
             {
                 "action": "Request SPGR",
                 "timeLine": "at least 4 weeks",
-                "form": "BD-0103"
+                "form": {
+                    "name": "BD-0103"
+                }
             },
             {
                 "action": "Request PHR",
                 "timeLine": "at Least 4 weeks",
-                "form": "DES-0102"
+                "form": {
+                    "name": "DES-0102"
+                }
             },
             {
                 "action": "Preliminary Architectural/Aesthetics Recommendation (PAAR)",
                 "timeLine": "Allow 4 weeks",
-                "form": "BD-0104"
+                "form": {
+                    "name": "BD-0104"
+                }
             },
             {
                 "action": "APS Quality Certification QC",
-                "form": "BD-0056"
+                "form": {
+                    "name": "BD-0056"
+                }
             },
             {
                 "action": "SOE Cost/WD Estimate",
@@ -44,17 +57,23 @@
             {
                 "action": "Advanced Planning Study Distribution Transmittal",
                 "timeLine": "Allow 2-3 weeks for feedback",
-                "form": "BD-0120"
+                "form": {
+                    "name": "BD-0120"
+                }
             },
             {
                 "action": "Foundation Report Request PFR using preliminary Loads",
                 "timeLine": "Allow 8-10 weeks",
-                "form": "BD-0131"
+                "form": {
+                    "name": "BD-0131"
+                }
             },
             {
                 "action": "Structure Hydraulics Request",
                 "timeLine": "Allow 8-10 weeks",
-                "form": "DES-0130"
+                "form": {
+                    "name": "DES-0130"
+                }
             },
             {
                 "action": "Check Project Documentation Storage *"
@@ -69,48 +88,68 @@
             {
                 "action": "Type Selection Checklist",
                 "timeLine": "4-6 months Type selection Phase",
-                "form": "BD-0201"
+                "form": {
+                    "name": "BD-0201"
+                }
             },
             {
                 "action": "Foundation Report update *",
-                "form": "BD-0131"
+                "form": {
+                    "name": "BD-0131"
+                }
             },
             {
                 "action": "Hydraulic Report update *",
-                "form": "BD-0130"
+                "form": {
+                    "name": "BD-0130"
+                }
             },
             {
                 "action": "Type Selection Strategy Request",
-                "form": "BD-0204"
+                "form": {
+                    "name": "BD-0204"
+                }
             },
             {
                 "action": "FAAR(Final Architectural/Aesthetics Recommendation",
-                "form": "BD-0205"
+                "form": {
+                    "name": "BD-0205"
+                }
             },
             {
                 "action": "General Plan Estimate Request",
                 "timeLine": "Allow 4-6 weeks",
-                "form": "BD-0207"
+                "form": {
+                    "name": "BD-0207"
+                }
             },
             {
                 "action": "Type Selection Approval meeting",
                 "timeLine": "Request GP Estimate 1 month prior to Approval meeting",
-                "form": "BD-0209"
+                "form": {
+                    "name": "BD-0209"
+                }
             },
             {
                 "action": "Type Selection Approval",
-                "form": "BD-0210"
+                "form": {
+                    "name": "BD-0210"
+                }
             },
             {
                 "action": "General Plan Distribution"
             },
             {
                 "action": "Update Project Information sheet",
-                "form": "BD-0050"
+                "form": {
+                    "name": "BD-0050"
+                }
             },
             {
                 "action": "Update Key Decision",
-                "form": "BD-0052"
+                "form": {
+                    "name": "BD-0052"
+                }
             }
         ]
     }

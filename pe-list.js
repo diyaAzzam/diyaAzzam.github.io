@@ -44,7 +44,10 @@ const appendItem = (list, listIndex, item, index) => {
   <span class="details">
     ${item.timeLine ? `Timeline: ${item.timeLine}` : ""}
     ${item.timeLine && item.form ? " - " : ""}
-    ${item.form ? `Form: ${item.form}` : ""}
+    ${item.form ? 
+      item.form.link ? `Form: <a href="${item.form.link}" target="_blank">${item.form.name}</a>`
+        : `Form: ${item.form.name}`
+      : ""}
   </span>
 </label>
 <label for="item-${index}" class="button"></label>
