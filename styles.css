@@ -6,13 +6,8 @@ body {
   margin: 0;
 }
 
-a {
-  color: #01b1b1;
-}
-
 .frame {
   width: 100%;
-  height: 100vh;
   border-radius: 2px;
   color: #497081;
   font-family: 'zilla slab', serif;
@@ -25,11 +20,15 @@ a {
   width: 80%;
   max-width: 800px;
   height: 90vh;
-  margin: 5vh auto;
+  margin: 0 auto 2em;
   background: #fff;
   box-shadow: 1rem 1rem .5rem rgba(0, 0, 0, 0.15);
   border-radius: 3px;
   overflow-y: auto;
+}
+
+.list a {
+  color: #01b1b1;
 }
 
 .list .head {
@@ -152,6 +151,36 @@ ul li .wrapper {
   bottom: 0;
   color: gray;
   font-size: 80%;
+}
+
+ul.tabs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1em;
+}
+
+ul.tabs li {
+  display: inline-block;
+  padding: 5px 10px;
+  font-size: 10pt;
+  background-color: #fff;
+  margin: 0 1rem;
+  border-radius: 3px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+}
+
+ul.tabs li:not(.active):hover {
+  background-color: #01b1b1;
+  color: #fff;
+}
+
+ul.tabs li.active {
+  background-color: #01b1b1;
+  color: gray;
+  box-shadow:none;
+  cursor: default;
 }
 
 @keyframes dash {

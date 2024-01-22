@@ -1,28 +1,50 @@
+let selectedList = 0;
+
 const toggleItem = (index) => {
   const myProgress = JSON.parse(localStorage.getItem("myProgress")) || {};
-  const itemStatus = myProgress[`item_${index}`] || {};
+  const itemStatus = myProgress[`list_${selectedList}_item_${index}`] || {};
   if (itemStatus.isCompleted) {
     itemStatus.isCompleted = false;
-    itemStatus.date = '';
+    itemStatus.date = "";
   } else {
     itemStatus.isCompleted = true;
     itemStatus.date = new Date();
   }
-  myProgress[`item_${index}`] = itemStatus;
-  localStorage.setItem('myProgress', JSON.stringify(myProgress));
-}
+  myProgress[`list_${selectedList}_item_${index}`] = itemStatus;
+  localStorage.setItem("myProgress", JSON.stringify(myProgress));
+};
 
-const appendItem = (item, index) => {
+const appendList = (list, index) => {
+  const listContent = `
+    <div class="head">
+      <div class="title">${list.title}</div>
+      <div class="subtitle">${list.subTitle}</div>
+    </div>
+    <ul class="pe-list-${index}"></ul>
+    <div class="appendix">${list.appendix}</div>
+  `;
+  const listContainer = document.createElement("div");
+  listContainer.classList.add(`list`);
+  listContainer.innerHTML = listContent;
+
+  // Append list
+  const container = document.getElementById("container");
+  container.appendChild(listContainer);
+};
+
+const appendItem = (list, listIndex, item, index) => {
   const myProgress = JSON.parse(localStorage.getItem("myProgress")) || {};
-  const itemStatus = myProgress[`item_${index}`] || {};
+  const itemStatus = myProgress[`list_${selectedList}_item_${index}`] || {};
   const itemContent = `
-<input type="checkbox" id="item-${index}" name="item-${index}" ${itemStatus.isCompleted ? 'checked' : ''}>
+<input type="checkbox" id="item-${index}" name="item-${index}" ${
+    itemStatus.isCompleted ? "checked" : ""
+  }>
 <label for="item-${index}" class="text">
-  ${item.title}
+  ${item.action}
   <span class="details">
-    ${item.timeLine ? `Timeline: ${item.timeLine}` : ''}
-    ${item.timeLine && item.form ? ' - ' : ''}
-    ${item.form ? `Form: ${item.form}` : ''}
+    ${item.timeLine ? `Timeline: ${item.timeLine}` : ""}
+    ${item.timeLine && item.form ? " - " : ""}
+    ${item.form ? `Form: ${item.form}` : ""}
   </span>
 </label>
 <label for="item-${index}" class="button"></label>
@@ -33,25 +55,62 @@ const appendItem = (item, index) => {
   C24.3,4,4,24.3,4,49.2s20.3,45.2,45.2,45.2s45.2-20.3,45.2-45.2c0-8.6-2.4-16.6-6.5-23.4l0,0L45.6,68.2L24.7,47.3"/>
   </svg>
 </div>
-${ itemStatus.date ? `<div class="item-status">Completed on ${new Date(itemStatus.date).toLocaleDateString("en-US")}</div>` : '' }
+${
+  itemStatus.date
+    ? `<div class="item-status">Completed on ${new Date(
+        itemStatus.date
+      ).toLocaleDateString("en-US")}</div>`
+    : ""
+}
 `;
   const listItem = document.createElement("li");
-  listItem.style.animation = `slide-up ${index/7}s`;
+  listItem.style.animation = `slide-up ${index / 7}s`;
   listItem.innerHTML = itemContent;
   // handle clicking on text
-  listItem.querySelector('.text').addEventListener('click', e => toggleItem(index));
+  listItem
+    .querySelector(".text")
+    .addEventListener("click", (e) => toggleItem(index));
   // handle clicking on checkbox
-  listItem.querySelector('.button').addEventListener('click', e => toggleItem(index));
+  listItem
+    .querySelector(".button")
+    .addEventListener("click", (e) => toggleItem(index));
 
   // Append list item
-  const listContainer = document.getElementById("pe-list");
+  const listContainer = document.querySelector(`.pe-list-${listIndex}`);
   listContainer.appendChild(listItem);
 };
 
-fetch("./list.json")
-  .then((response) => response.json())
-  .then((items) => {
-    items.forEach((item, index) => {
-      appendItem(item, index);
-    });
+const appendTab = (list, index) => {
+  const tabs = document.getElementById("tabs");
+  const tabItem = document.createElement("li");
+  if (selectedList === index) {
+    tabItem.classList.add("active");
+  }
+  tabItem.innerHTML = list.title;
+  tabItem.addEventListener("click", () => {
+    selectedList = index;
+    document.getElementById("tabs").innerHTML = ""; // clear tabs
+    document.getElementById("container").innerHTML = ""; // clear list
+    renderList(list, index);
   });
+  tabs.appendChild(tabItem);
+};
+
+const renderList = (list, listIndex) => {
+  fetch("./lists.json")
+    .then((response) => response.json())
+    .then((lists) => {
+      lists.forEach((list, listIndex) => {
+        appendTab(list, listIndex);
+        if (selectedList === listIndex) {
+          appendList(list, listIndex);
+          list.items.forEach((item, index) =>
+            appendItem(list, listIndex, item, index)
+          );
+        }
+      });
+    });
+};
+
+
+renderList();
