@@ -73,7 +73,7 @@ body {
   font-size: 1rem;
   cursor: pointer;
   transition: all .3s ease-in-out;
-  max-width: 95%;
+  max-width: 90%;
   margin-bottom: 1em;
 }
 
@@ -183,6 +183,12 @@ ul.tabs li.active {
   cursor: default;
 }
 
+@media screen and (max-width: 768px) {
+  .list {
+    width: 100%;
+  }
+}
+
 @keyframes dash {
   0% {
     stroke-dashoffset: 340;
@@ -191,4 +197,3 @@ ul.tabs li.active {
     stroke-dashoffset: 0;
   }
 }
-
