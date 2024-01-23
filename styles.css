@@ -162,8 +162,8 @@ ul.tabs {
 
 ul.tabs li {
   display: inline-block;
-  padding: 5px 10px;
-  font-size: 10pt;
+  padding: 3px 6px;
+  font-size: 12pt;
   background-color: #fff;
   margin: 0 1rem;
   border-radius: 3px;
@@ -178,7 +178,7 @@ ul.tabs li:not(.active):hover {
 
 ul.tabs li.active {
   background-color: #01b1b1;
-  color: gray;
+  color: #ddd;
   box-shadow:none;
   cursor: default;
 }
